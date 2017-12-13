@@ -17,7 +17,7 @@ var liquify = function(contents, locals, includeBase, prefix, filters){
   if(typeof contents != "string"){
     template = contents;
   } else {
-    template = tinyliquid.compile(contents);
+    template = tinyliquid.compile(contents, { customTags: locals.customTags });
   }
 
   return new Promise(function (resolve, reject) {
